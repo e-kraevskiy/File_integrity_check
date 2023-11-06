@@ -1,3 +1,4 @@
 OS - Ubuntu 20.04
-BOOST VERSION - 1.71
-cmake version - 3.19.3
+BOOST - 1.71
+cmake - 3.19.3
+Compiler - Clang 15.0.7

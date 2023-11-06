@@ -1,0 +1,3 @@
+OS - Ubuntu 20.04
+BOOST VERSION - 1.71
+cmake version - 3.19.3

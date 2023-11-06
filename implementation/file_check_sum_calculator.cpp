@@ -10,8 +10,9 @@
 #include "utils/utils.hpp"
 #include "utils/sys_logger.hpp"
 
-FileCheckSumCalculator::FileCheckSumCalculator( const std::filesystem::path& directory_path )
-  : mSysLogger( std::make_shared< SysLogger >() )
+FileCheckSumCalculator::FileCheckSumCalculator( const std::filesystem::path& directory_path,
+                                                const std::shared_ptr< SysLogger >& sys_logger )
+  : mSysLogger( sys_logger )
 {
    SetDirectoryPath( directory_path );
    CalculateAndStore();

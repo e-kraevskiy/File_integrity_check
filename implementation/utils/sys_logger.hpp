@@ -8,6 +8,7 @@ public:
    SysLogger();
 
    void Log( const FileCompareResult& result ) const;
+   void LogError( const std::string& error_msg ) const;
 
    ~SysLogger();
 

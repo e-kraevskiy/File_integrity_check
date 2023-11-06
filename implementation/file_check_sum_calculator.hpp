@@ -30,7 +30,8 @@ class FileCheckSumCalculator
    std::unordered_map< std::string, size_t > mCheckSums;
    const std::shared_ptr< SysLogger > mSysLogger;
 public:
-   FileCheckSumCalculator( const std::filesystem::path& directory_path );
+   FileCheckSumCalculator( const std::filesystem::path& directory_path,
+                           const std::shared_ptr< SysLogger >& sys_logger );
 
    std::vector< FileCompareResult > CalculateAndCompare() const;
 

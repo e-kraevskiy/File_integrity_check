@@ -14,9 +14,12 @@ int main( int argc, const char** argv )
 {
    try
    {
-      const auto program_args = ArgsParser::GetArgs( argc, argv );
-      auto calculator = std::make_shared< FileCheckSumCalculator >( program_args.mDirectoryPath );
+      auto logger = std::make_shared< SysLogger >();
+      const auto program_args = ArgsParser::GetArgs( argc, argv, logger );
+
+      auto calculator = std::make_shared< FileCheckSumCalculator >( program_args.mDirectoryPath,logger );
       auto queue = std::make_shared< CalculateQueue >( calculator );
+
       boost::asio::io_context io_context;
       auto timer = std::make_shared< CalculateTimer >( queue, program_args.mTimerDuration, io_context );
       SignalHandler::CreateInstance( queue );

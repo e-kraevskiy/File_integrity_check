@@ -1,4 +1,0 @@
-2023-08-22 11:57:09.180 23988-24073/ru.tensor.sbis.droid.saby.debug E/SBIS: [sbis-person-card:co_sync][PersonCardSync.Pull] Ошибка! Имя поля "country_from_person_page" не найдено в формате записи! Формат записи:[ city, info, name, uuid, has_access, patronymic, surname, full_department, department, is_videocall_allowed, local_face, birthday, is_robot, social_networks, dominant_color, country, previous_surname, photo_url, timestamp, is_birthday_full, gender, is_physic, position, birthday_visibility, is_subscribed, company_name, contacts, can_edit_photo, client_id, is_dark_theme, videlcall_visibility ]
-2023-08-22 11:57:09.226 23988-23988/ru.tensor.sbis.droid.saby.debug E/PersonCardStoreFactory$ExecutorImpl$loadPersonData: (PersonCardStoreFactory$ExecutorImpl$loadPersonData.java:323) - other
-2023-08-22 11:57:09.227 23988-24100/ru.tensor.sbis.droid.saby.debug E/SBIS: other
-afasdas

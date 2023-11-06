@@ -4,9 +4,8 @@
 #include <string>
 #include <iostream>
 
-#include "config.hpp"
-
 const static std::string LOG_PREFIX = "Integrity check: ";
+const std::string SYSLOG_PROGRAM_NAME = "File_integrity_check";
 
 SysLogger::SysLogger()
 {
@@ -32,25 +31,34 @@ SysLogger::~SysLogger()
 std::string SysLogger::GetErrorMessage( const FileCompareResult& result ) const
 {
    std::string res = LOG_PREFIX;
-   res += "FAIL (";
-   res += result.mAbsolutePath;
-   res += " - ";
+   res.append( "FAIL (" );
+   res.append( result.mAbsolutePath );
+   res.append( " - " );
    switch ( result.mStatus )
    {
       case CompareStatus::FAIL:
       {
-         res += std::to_string( result.mOldCrc );
+         res.append( std::to_string( result.mOldCrc ) );
          res.push_back( ',' );
-         res += std::to_string( result.mNewCrc );
+         res.append( std::to_string( result.mNewCrc ) );
+         break;
       }
       case CompareStatus::NEW:
-         res += "new file";
+         res.append( "new file" );
+         break;
       case CompareStatus::ABSENT:
-         res += "not found";
+         res.append( "not found" );
+         break;
       case CompareStatus::OK:
-         std::cout << "SysLogger::GetErrorMessage. Error: CompareStatus::OK shouldn't be there.";
+         std::cout << "SysLogger::GetErrorMessage. Error: CompareStatus::OK shouldn't be there." << std::endl;
+         break;
    }
    res += ")";
 
    return res;
+}
+
+void SysLogger::LogError( const std::string& error_msg ) const
+{
+   syslog( LOG_ERR, "%s", error_msg.c_str() );
 }

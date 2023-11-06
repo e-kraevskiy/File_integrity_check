@@ -24,7 +24,6 @@ set(HEADERS
         implementation/utils/sys_logger.hpp
         implementation/calculate_queue.hpp
         implementation/timer/calculate_timer.hpp
-        implementation/utils/config.hpp
         implementation/signal_handler/signal_handler.hpp
         )
 

@@ -4,7 +4,7 @@
 #include <boost/optional.hpp>
 #include <boost/asio.hpp>
 
-// TODO перейти на boost::program_options
+class SysLogger;
 
 struct ProgramArgs
 {
@@ -15,7 +15,7 @@ struct ProgramArgs
 class ArgsParser
 {
 public:
-   static ProgramArgs GetArgs( int argc, const char *argv[] );
+   static ProgramArgs GetArgs( int argc, const char **argv, std::shared_ptr< SysLogger >& sys_logger );
 };
 
 
